@@ -55,3 +55,23 @@ print(lista)
 # Usar range() para crear una lista de numeros
 numbers = list(range(6))
 print(numbers)
+
+# Copiar una lista
+print('Copy a list')
+my_foods = ['pizza', 'falafel', 'carrot cake']
+friends_food = my_foods[:]
+print(friends_food)
+
+# Comprobar si un elemento esta en una lista
+print('Comprobar si un elemento esta en una lista')
+requested_toppings = ['mushrooms', 'onions', 'pineapple']
+print('mushrooms' in requested_toppings)
+print('pepperoni' in requested_toppings)
+print('\n')
+# Comprobar si un elemento no esta en una lista
+print('Comprobar si un elemento esta en una lista')
+banned_users = ['andrew', 'carolina', 'david']
+user = 'marie'
+print(user not in banned_users)
+print(f"{user.title()}, you can post a response if you wish.")
+print('\n')
