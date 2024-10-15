@@ -1,11 +1,23 @@
 import re
 
 
-phoneNumRegex = re.compile(r'\d\d\d-\d\d\d-\d\d\d\d')
+phoneNumRegex = re.compile(r'(\d\d\d)-(\d\d\d-\d\d\d\d)')
+phoneNumRegexEscape = re.compile(r'(\(\d\d\d\)) (\d\d\d-\d\d\d\d)')
 
 mo = phoneNumRegex.search('Mi numero es 993-194-8106')
+moe = phoneNumRegexEscape.search('Mi numero es (993) 194-8106')
+codArea, numPrincipal = mo.groups()
 
 print('Numero de telefono encontrado:', mo.group())
+
+print('Codigo de area:', mo.group(1))
+print('Numero principal:', mo.group(2))
+print('Todos los grupos:', mo.group(0))
+print('Todos los grupos:', mo.group(0))
+print('Todos los grupos:', codArea)
+print('Todos los grupos:', numPrincipal)
+print('Regex con escape de caracteres:', moe.group())
+
 
 # def isPhoneNumber(text):
 #     if len(text) != 12:
