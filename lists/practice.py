@@ -16,3 +16,7 @@
 cubes = list(range(1, 10))
 for number in cubes:
     print(number**3)
+
+# Cube of each number from 1 to 10 with list comprehension
+cubes_lc = [ number ** 3 for number in range(1, 10)]
+print(cubes_lc)
