@@ -1,9 +1,9 @@
 data = [
-    {"documento": "Documento: Cartera de Servicio al trabajador ", "requisitos": []},
-    {"documento": "Documento: Solicitud Correo Electrónico ", "requisitos": []},
-    {"documento": "Documento: Solicitud Declara Tabasco ", "requisitos": []},
+    {"documento": "Cartera de Servicio al trabajador ", "requisitos": []},
+    {"documento": "Solicitud Correo Electrónico ", "requisitos": []},
+    {"documento": "Solicitud Declara Tabasco ", "requisitos": []},
     {
-        "documento": "Documento: Solicitud Pagos Extemporaneos de días económicos ",
+        "documento": "Solicitud Pagos Extemporaneos de días económicos ",
         "requisitos": [
             {
                 "requisito": "Requisito: Copia del último talón de pago ",
@@ -25,7 +25,7 @@ data = [
         ],
     },
     {
-        "documento": "Documento: Solicitud de Pagos Extemporaneos de Aguinaldo ",
+        "documento": "Solicitud de Pagos Extemporaneos de Aguinaldo ",
         "requisitos": [
             {
                 "requisito": "Requisito: Copia de identificación oficial ",
@@ -44,6 +44,9 @@ data = [
 ]
 
 
-for documento in data:
-    for k, v in documento.items():
-        print(f'Key: {k} Value: {v}')
+
+if __name__ == '__main__':
+
+    for documento in data:
+        for k, v in documento.items():
+            print(f'Key: {k} Value: {v}')
