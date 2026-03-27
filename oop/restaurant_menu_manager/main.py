@@ -1,0 +1,35 @@
+class MenuItem:
+    def __init__(self, name: str, category: str, price):
+        self.name =  name
+        self.category = category
+        self.price = price
+
+    def __str__(self):
+        return f"Name: {self.name}, Category: {self.category}, Price: ${self.price:.2f}"
+
+
+class MenuManager:
+    def __init__(self):
+        self.menu_items = {}
+
+    def add_item(self, item: MenuItem):
+        if item.category not in self.menu_items:
+            self.menu_items[item.category][item.name] = {}
+        self.menu_items[item.category][item.name] =  item
+        print(f"Added new item: {item.name} to the category: {item.category} menu.")
+
+
+tortilla = MenuItem('Tortilla', 'Complements', 0.20)
+coffe = MenuItem('Coffe', 'Berevage', 3.50)
+sandwitch = MenuItem('Sandwitch', 'Snack', 2.00)
+
+print(tortilla)
+print(coffe)
+print(sandwitch)
+
+print('*' * 10)
+
+menu = MenuManager()
+menu.add_item(tortilla)
+menu.add_item(coffe)
+menu.add_item(sandwitch)

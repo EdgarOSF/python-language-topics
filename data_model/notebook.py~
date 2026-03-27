@@ -1,0 +1,18 @@
+class Notebook:
+    def __init__(self, notes: list) -> None:
+        self.notes = notes
+
+    def __len__(self):
+        return len(self.notes)
+
+    def __getitem__(self, index):
+        return self.notes[index]
+    
+
+
+
+
+n = Notebook(['Compras', 'Comida', 'Bebidas'])
+
+print(len(n))
+print(n[0])
