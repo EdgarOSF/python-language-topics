@@ -13,15 +13,43 @@ class MenuManager:
         self.menu_items = {}
 
     def add_item(self, item: MenuItem):
-        if item.category not in self.menu_items:
-            self.menu_items[item.category][item.name] = {}
+        if not item.category in self.menu_items:
+            self.menu_items[item.category] = {}
         self.menu_items[item.category][item.name] =  item
         print(f"Added new item: {item.name} to the category: {item.category} menu.")
+        
+    def remove_item(self, name: str, category: str):
+        if category in self.menu_items:
+            del self.menu_items[category][name]
+            print(f"The item: {name} has been remove of the menu.")
+        else:
+            print(f"Not found the item: {name} in the menu.")
 
+    def list_items(self):
+        for category, item in self.menu_items.items():
+            for item in item.values():
+                print(f'{category}: {item}')
+
+    def update_item_price(self, name:str, category: str, new_price: float):
+        if category in self.menu_items and name in self.menu_items[category]:
+            self.menu_items[category][name].price = new_price
+            print(f'Change new price: ${new_price:.2f} to the item: {name}')
+        else:
+            print('The item not exist.')
+
+    def list_items_by_category(self, category):
+        if category in self.menu_items:
+            print(category.upper())
+            for item in self.menu_items[category]:
+                print(f'{"":2}- {item}')
 
 tortilla = MenuItem('Tortilla', 'Complements', 0.20)
+totopos = MenuItem('Totopos', 'Complements', 1.0)
+salsa = MenuItem('Salsa', 'Complements', 0.50)
 coffe = MenuItem('Coffe', 'Berevage', 3.50)
+soda = MenuItem('Soda', 'Berevage', 3.0)
 sandwitch = MenuItem('Sandwitch', 'Snack', 2.00)
+french_fries = MenuItem('French Fries', 'Snack', 1.50)
 
 print(tortilla)
 print(coffe)
@@ -31,5 +59,29 @@ print('*' * 10)
 
 menu = MenuManager()
 menu.add_item(tortilla)
+menu.add_item(totopos)
+menu.add_item(salsa)
 menu.add_item(coffe)
 menu.add_item(sandwitch)
+menu.add_item(soda)
+menu.add_item(french_fries)
+
+print("*" * 10)
+
+new_item = MenuItem('Salad', 'Complements', 2.0)
+menu.add_item(new_item)
+menu.remove_item('Salad', 'Complements')
+menu.list_items()
+
+print("*" * 10)
+
+menu.update_item_price('Tortilla', 'Complements', 1)
+menu.update_item_price('Soda', 'Berevage', 2.4)
+
+print("*" * 10)
+
+menu.list_items()
+
+print("*" * 10)
+
+menu.list_items_by_category('Complements')
