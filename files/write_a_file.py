@@ -4,4 +4,4 @@ print('Writes text in the file')
 print(f.write('Hello\n'))
 
 print(f.write('Hello!\n'))
-f.close()
+f.elose()

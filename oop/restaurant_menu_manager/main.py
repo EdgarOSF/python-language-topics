@@ -1,3 +1,5 @@
+import json
+
 class MenuItem:
     def __init__(self, name: str, category: str, price):
         self.name =  name
@@ -6,6 +8,13 @@ class MenuItem:
 
     def __str__(self):
         return f"Name: {self.name}, Category: {self.category}, Price: ${self.price:.2f}"
+
+    def to_dict(self):
+        return {
+            "name": self.name,
+            "category": self.category,
+            "price": f'{self.price:.2f}'
+        }
 
 
 class MenuManager:
@@ -42,6 +51,27 @@ class MenuManager:
             print(category.upper())
             for item in self.menu_items[category]:
                 print(f'{"":2}- {item}')
+
+    def save_to_file(self, filename: str):
+        with open(filename, 'w') as file:
+            json.dump(self.menu_items, file, default=to_dict_func, indent=4)
+
+    def load_from_file(self, filename):
+        with open(filename, 'r') as read_file:
+            items = json.load(read_file)
+            for name, category, price in items.items():
+                self.add_item(
+                    {
+                        "name": name, 
+                        "category": category, 
+                        "price": price
+                    })
+            print('Add the items correctly.')
+
+
+def to_dict_func(obj):
+    return obj.to_dict()
+
 
 tortilla = MenuItem('Tortilla', 'Complements', 0.20)
 totopos = MenuItem('Totopos', 'Complements', 1.0)
@@ -85,3 +115,25 @@ menu.list_items()
 print("*" * 10)
 
 menu.list_items_by_category('Complements')
+
+print("*" * 10 )
+
+print(tortilla.to_dict())
+print(totopos.to_dict())
+print(soda.to_dict())
+
+print()
+
+menu.save_to_file('data.txt')
+
+print()
+
+menu.load_from_file("json_data.json")
+
+
+
+
+
+
+
+

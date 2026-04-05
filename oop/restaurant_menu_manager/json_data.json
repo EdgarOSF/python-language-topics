@@ -1,0 +1,12 @@
+{
+  {"name": "Tacos al Pastor", "category": "Mexican Food", "price": 85},
+  {"name": "Enchiladas Verdes", "category": "Mexican Food", "price": 95},
+  {"name": "Chiles en Nogada", "category": "Mexican Food", "price": 180},
+  {"name": "Pozole Rojo", "category": "Mexican Food", "price": 120},
+  {"name": "Quesadillas de Huitlacoche", "category": "Mexican Food", "price": 70},
+  {"name": "Tamales Oaxaqueños", "category": "Mexican Food", "price": 60},
+  {"name": "Mole Poblano con Pollo", "category": "Mexican Food", "price": 150},
+  {"name": "Sopes de Carne", "category": "Mexican Food", "price": 90},
+  {"name": "Guacamole con Totopos", "category": "Appetizer", "price": 65},
+  {"name": "Flan Napolitano", "category": "Dessert", "price": 50}
+}

@@ -1,0 +1,43 @@
+{
+    "Complements": {
+        "Tortilla": {
+            "name": "Tortilla",
+            "category": "Complements",
+            "price": "1.00"
+        },
+        "Totopos": {
+            "name": "Totopos",
+            "category": "Complements",
+            "price": "1.00"
+        },
+        "Salsa": {
+            "name": "Salsa",
+            "category": "Complements",
+            "price": "0.50"
+        }
+    },
+    "Berevage": {
+        "Coffe": {
+            "name": "Coffe",
+            "category": "Berevage",
+            "price": "3.50"
+        },
+        "Soda": {
+            "name": "Soda",
+            "category": "Berevage",
+            "price": "2.40"
+        }
+    },
+    "Snack": {
+        "Sandwitch": {
+            "name": "Sandwitch",
+            "category": "Snack",
+            "price": "2.00"
+        },
+        "French Fries": {
+            "name": "French Fries",
+            "category": "Snack",
+            "price": "1.50"
+        }
+    }
+}
