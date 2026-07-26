@@ -23,7 +23,7 @@ class MenuManager:
         self.menu_items = {}
 
     def add_item(self, item: MenuItem):
-        if item.category not in self.menu_items:
+        if not item.category in self.menu_items:
             self.menu_items[item.category] = {}
         self.menu_items[item.category][item.name] = item
         print(f"Added new item: {item.name} to the category: {item.category} menu.")
@@ -59,14 +59,9 @@ class MenuManager:
 
     def load_from_file(self, filename):
         with open(filename, "r") as read_file:
-            new_items = json.load(read_file)
-            for category, items in new_items.items():
-                if category not in self.menu_items:
-                    self.menu_items[category] = {}
-                for _, item in items.items():
-                    self.add_item(
-                        MenuItem(item["name"], item["category"], item["price"])
-                    )
+            items = json.load(read_file)
+            for row in items:
+                print(row)
 
 
 def to_dict_func(obj):
@@ -126,18 +121,6 @@ print()
 
 menu.save_to_file("data.txt")
 
-print("*" * 10)
+print()
 
 menu.load_from_file("json_data.json")
-
-print()
-
-menu.list_items()
-
-print()
-
-menu.list_items_by_category("Main Course")
-
-print()
-
-menu.list_items_by_category("Dessert")
