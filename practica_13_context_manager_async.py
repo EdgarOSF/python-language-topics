@@ -3,26 +3,29 @@ import asyncio
 class FlujoNumeros:
 
     def __init__(self, numeros):
-        self.numeros = list(numeros)
-        self.cerrado = None
+        self.numeros = iter(list(numeros))
+        self.cerrado = False
+        self._abierto = False
 
     async def __aenter__(self):
         self.cerrado = False
+        self._abierto = True
         return self
 
     async def __aexit__(self, exc_type, value, tb):
         self.cerrado = True
+        self._abierto = False
 
-        # if exc_type is None:
-        #     return self.cerrado
         return False
 
     def __aiter__(self):
-        if self.cerrado is True:
+        if not self._abierto:
             raise RuntimeError
-        return iter(self.numeros)
+        return self
 
     async def __anext__(self):
+        if self._abierto is False:
+            raise RuntimeError
         try:
             value = next(self.numeros)
         except StopIteration:
@@ -40,6 +43,5 @@ async def main():
             print(numero)
 
     print(flujo.cerrado)  # True
-
 
 asyncio.run(main())
