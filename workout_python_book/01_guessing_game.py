@@ -59,15 +59,15 @@ def guessing_word():
 
 def guessing_game():
     
-   selected_game = input('Select a game "1" to guessing a number or "2" for guessing a word')
+    selected_game = input('Select a game "1" to guessing a number or "2" for guessing a word')
 
-   match selected_game:
-       case "1":
-           guessing_number()
-       case "2":
-           guessing_word()
-       case _:
-           print('Invalid option')
+    match selected_game:
+        case "1":
+            guessing_number()
+        case "2":
+            guessing_word()
+        case _:
+            print('Invalid option')
 
 
 
